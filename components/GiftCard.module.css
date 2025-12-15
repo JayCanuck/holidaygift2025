@@ -1,0 +1,135 @@
+.cardWrap {
+  width: clamp(320px, 85vw, 980px);
+  height: clamp(420px, 70vh, 720px);
+  perspective: 1600px;
+  cursor: pointer;
+  outline: none;
+}
+
+.cardWrap:focus-visible {
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.6);
+  border-radius: 12px;
+}
+
+.book {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.left {
+  position: relative;
+  width: 50%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+.cover,
+.insideLeft {
+  position: absolute;
+  inset: 0;
+  border-radius: 12px 0 0 12px;
+  backface-visibility: hidden;
+}
+
+.cover {
+  background: url('/images/card-cover.svg') center/cover no-repeat;
+  transform-origin: left center;
+  transform: rotateY(0deg);
+  transition: transform 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+}
+
+.coverTitle {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+  font-size: clamp(20px, 4vw, 44px);
+}
+
+.insideLeft {
+  background: url('/images/card-inside-cover.svg') center/cover no-repeat;
+  transform: rotateY(0deg);
+}
+
+/* Open state */
+.open .cover {
+  transform: rotateY(-178deg);
+}
+
+.right {
+  position: relative;
+  width: 50%;
+  height: 100%;
+  background: #fbf7ef;
+  border-radius: 0 12px 12px 0;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  border: 1px solid rgba(0,0,0,0.06);
+  overflow: hidden;
+}
+
+.rightInner {
+  position: absolute;
+  inset: 0;
+  padding: clamp(12px, 2.2vw, 24px);
+  overflow: auto;
+}
+
+/* Content styles */
+.giftContent {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(10px, 2vw, 16px);
+}
+
+.loading {
+  font-size: 0.95rem;
+  opacity: 0.7;
+}
+
+.giftName {
+  font-size: clamp(18px, 3.2vw, 28px);
+  color: #b22222;
+}
+
+.message {
+  font-size: clamp(14px, 2.2vw, 18px);
+  line-height: 1.5;
+  color: #333;
+}
+
+.gamesSection { margin-top: 8px; }
+.sectionTitle {
+  font-size: clamp(14px, 2vw, 18px);
+  margin-bottom: 6px;
+}
+
+.gamesList { display: grid; gap: 8px; }
+.gameRow { display: grid; grid-template-columns: 1fr minmax(160px, 1fr); gap: 10px; align-items: center; }
+.gameName { color: #666; font-size: clamp(12px, 1.8vw, 16px); }
+.gameCode {
+  width: 100%;
+  padding: 8px 10px;
+  font-family: var(--font-geist-mono, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace);
+  font-size: clamp(12px, 1.8vw, 16px);
+  border-radius: 8px;
+  border: 1px solid rgba(0,0,0,0.2);
+  background: #fff;
+}
+.gameCode:focus { outline: 2px solid #b22222; border-color: #b22222; }
+
+.footer { color: #333; font-size: clamp(13px, 2vw, 16px); opacity: 0.9; }
+.signature { margin-top: 6px; font-weight: 600; color: #b22222; }
+
+.doomBlock { margin-top: clamp(10px, 2vw, 16px); }
+
+/* Responsive tweaks */
+@media (max-width: 700px) {
+  .book { display: grid; grid-template-columns: 1fr 1fr; }
+  .gameRow { grid-template-columns: 1fr; }
+}

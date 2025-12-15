@@ -62,5 +62,5 @@ On Vercel, the default build/run config works (`next build`, `next start`).
 
 ## Notes
 
-- Placeholder images live under `/public/images` and are provided as lightweight SVGs.
+- Placeholder images live under `/public/images` and may be `.svg` vector assets.
 - Package name is `@jaycanuck/holidaygift2025` and marked `private`.
