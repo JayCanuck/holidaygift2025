@@ -26,28 +26,34 @@ export default function GiftCard({ gift, hasUserData, loading }: Props) {
 
   return (
     <div
-      className={`${styles.cardWrap} ${open ? styles.open : ""}`}
+      className={`${styles.card} ${open ? styles.open : ""}`}
       role="button"
       aria-pressed={open}
       aria-label="Holiday greeting card"
       tabIndex={0}
       onClick={openCard}
-      onMouseEnter={openCard}
       onKeyDown={onKeyDown}
     >
-      <div className={styles.book}>
-        <div className={styles.left}>
-          <div className={styles.insideLeft} aria-hidden="true" />
-          <div className={styles.cover}>
-            <div className={styles.coverTitle}>Merry Christmas</div>
-          </div>
+      <div className={styles.inside}>
+        <div className={styles.messageContent}>
+          <GiftDetails gift={gift} hasUserData={hasUserData} loading={!!loading} />
         </div>
-        <div className={styles.right}>
-          <div className={styles.rightInner}>
-            <GiftDetails gift={gift} hasUserData={hasUserData} loading={!!loading} />
-            <div className={styles.doomBlock}>
-              {open && <DoomEmbed />}
-            </div>
+      </div>
+
+      <div className={styles.cover}>
+        <div className={styles.coverFront}>
+          <div className={styles.openHint}>Click / tap to open</div>
+        </div>
+        <div className={styles.coverBack}>
+          <div className={styles.coverBackContent}>
+            {open && (
+              <>
+                <div className={styles.doomCaption}>
+                  Because it’s everywhere… why not add Doom to a greeting card?
+                </div>
+                <DoomEmbed />
+              </>
+            )}
           </div>
         </div>
       </div>

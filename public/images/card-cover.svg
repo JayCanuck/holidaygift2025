@@ -18,9 +18,4 @@
     <rect x="0" y="120" width="800" height="60" fill="#297a3c"/>
     <rect x="0" y="90" width="800" height="40" fill="#379f4c"/>
   </g>
-  <g transform="translate(400, 400)" fill="#fff">
-    <text x="0" y="0" text-anchor="middle" font-size="64" font-weight="700" style="font-family: sans-serif;">
-      Merry Christmas
-    </text>
-  </g>
 </svg>

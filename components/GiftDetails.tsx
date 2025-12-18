@@ -28,7 +28,7 @@ export default function GiftDetails({ gift, hasUserData, loading }: Props) {
       )}
 
       {gift?.name && (
-        <h2 className={styles.giftName}>To {gift.name}</h2>
+        <h2 className={styles.giftName}>{gift.name},</h2>
       )}
 
       <div
@@ -38,17 +38,14 @@ export default function GiftDetails({ gift, hasUserData, loading }: Props) {
 
       {hasUserData && games.length > 0 && (
         <div className={styles.gamesSection}>
-          <h3 className={styles.sectionTitle}>Games</h3>
           <div className={styles.gamesList}>
             {games.map((g, idx) => (
-              <div className={styles.gameRow} key={`${g.name}-${idx}`}>
-                <span className={styles.gameName}>{g.name}</span>
+              <div className={styles.gameRow} key={`game-${idx}`}>
                 <input
                   className={styles.gameCode}
                   value={g.code}
                   readOnly
                   aria-label={`Redemption code for ${g.name}`}
-                  onFocus={(e) => e.currentTarget.select()}
                 />
               </div>
             ))}

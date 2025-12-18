@@ -53,7 +53,7 @@ a {
 .bg-overlay {
   position: absolute;
   inset: 0;
-  background-image: url('/images/livingroom-bg.svg');
+  background-image: url('/images/bg.jpg');
   background-size: cover;
   background-position: center;
   filter: blur(8px) brightness(0.8);
@@ -68,4 +68,18 @@ a {
   display: grid;
   place-items: center;
   padding: 2vh 2vw;
+}
+
+.emulator-click-to-start-overlay {
+  font-size: clamp(10px, 2.2vmin, 16px);
+  cursor: pointer;
+}
+
+.emulator-click-to-start-icon {
+  width: clamp(36px, 9vmin, 64px);
+  height: clamp(36px, 9vmin, 64px);
+}
+
+.doom-emulator > :first-child > :first-child > :first-child {
+  display: none !important;
 }
