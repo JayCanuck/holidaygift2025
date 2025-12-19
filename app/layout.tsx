@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Cookie } from "next/font/google";
 import Script from "next/script";
+import Providers from "./providers";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -34,11 +35,11 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/favicon.ico" />
         {/* eslint-disable-next-line @next/next/no-css-tags */}
-        <link rel="stylesheet" href="./js-dos/js-dos.css" />
-        <Script src="./js-dos/js-dos.js" />
+        <link rel="stylesheet" href="/js-dos/js-dos.css" />
+        <Script src="/js-dos/js-dos.js" strategy="beforeInteractive" />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} ${cookie.variable}`}>
-        {children}
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
