@@ -19,6 +19,7 @@ type DosFactory = (
   setVolume: (volume: number) => Promise<void>;
 };
 const doomUrl = process.env.NEXT_PUBLIC_DOOM;
+const doomKnownTotalBytes = 5539297;
 
 function formatBytes(bytes: number) {
   if (!Number.isFinite(bytes)) return "0 B";
@@ -74,7 +75,7 @@ export default function DoomEmbed() {
 
   const downloadLabel = useMemo(() => {
     const loaded = formatBytes(downloadedBytes);
-    const total = totalBytes ? formatBytes(totalBytes) : "?";
+    const total = formatBytes(totalBytes ?? doomKnownTotalBytes);
     return `${loaded} / ${total}`;
   }, [downloadedBytes, totalBytes]);
 

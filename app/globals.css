@@ -71,13 +71,13 @@ a {
 }
 
 .emulator-click-to-start-overlay {
-  font-size: clamp(10px, 2.2vmin, 16px);
+  font-size: calc(var(--card-width, 360px) * 0.035);
   cursor: pointer;
 }
 
 .emulator-click-to-start-icon {
-  width: clamp(36px, 9vmin, 64px);
-  height: clamp(36px, 9vmin, 64px);
+  width: calc(var(--card-width, 360px) * 0.18) !important;
+  height: calc(var(--card-width, 360px) * 0.18) !important;
 }
 
 .doom-emulator > :first-child > :first-child > :first-child {
