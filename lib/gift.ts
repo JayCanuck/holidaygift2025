@@ -7,7 +7,7 @@ export interface GiftDetails {
   name?: string;
   message?: string;
   games: GameEntry[];
-  footerMessage?: string;
+  footer?: string;
 }
 
 export interface MysteryGiftData {
@@ -18,7 +18,7 @@ type PartialGift = {
   name?: unknown;
   message?: unknown;
   games?: unknown;
-  footerMessage?: unknown;
+  footer?: unknown;
 };
 
 function isValidGiftDetails(obj: unknown): obj is GiftDetails {
@@ -32,7 +32,7 @@ function isValidGiftDetails(obj: unknown): obj is GiftDetails {
     const ge = g as { name?: unknown; code?: unknown };
     if (typeof ge.name !== "string" || typeof ge.code !== "string") return false;
   }
-  if (o.footerMessage !== undefined && typeof o.footerMessage !== "string") return false;
+  if (o.footer !== undefined && typeof o.footer !== "string") return false;
   return true;
 }
 

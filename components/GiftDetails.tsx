@@ -11,14 +11,14 @@ interface Props {
 
 export default function GiftDetails({ gift, hasUserData, loading }: Props) {
   const defaultNoUserMessage = "Happy holidays! ☃️";
-  const defaultFooterMessage = "Hope you have a great holidays and a happy new year!";
+  const defaultFooterMessage = "Have a great holidays and a happy new year!";
 
   const games = gift?.games ?? [];
 
   const computedMessage = gift?.message
     ? gift.message
     : hasUserData
-    ? `Here's a little surprise to add some fun to your day, ${games.length} random mystery Steam games! Redeem them and see what adventures await.`
+    ? `Here's a small surprise from me to you, a blindbag of ${games.length} mystery Steam games to hopefully bring a bit of fun and cheer your way.`
     : defaultNoUserMessage;
 
   return (
@@ -55,7 +55,7 @@ export default function GiftDetails({ gift, hasUserData, loading }: Props) {
 
       {hasUserData && (
         <p className={styles.footer}>
-          {gift?.footerMessage ?? defaultFooterMessage}
+          {gift?.footer ?? defaultFooterMessage}
         </p>
       )}
 

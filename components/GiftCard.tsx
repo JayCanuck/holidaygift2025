@@ -49,7 +49,7 @@ export default function GiftCard({ gift, hasUserData, loading }: Props) {
             {open && (
               <>
                 <div className={styles.doomCaption}>
-                  Because it’s everywhere… why not add Doom to a greeting card?
+                  Because it's everywhere… why not add Doom to a greeting card?
                 </div>
                 <DoomEmbed />
               </>

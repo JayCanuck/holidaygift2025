@@ -9,5 +9,5 @@ export function escapeHtml(text: string): string {
 
 export function messageToHtml(message: string): { __html: string } {
   const escaped = escapeHtml(message);
-  return { __html: escaped.replace(/\n/g, "<br />") };
+  return { __html: escaped.replace(/\n\n/g, "<div style='height:1.1rem;'></div>") };
 }
