@@ -168,7 +168,7 @@
 /* Message content inside back */
 .messageContent {
   height: 100%;
-  overflow-y: auto;
+  overflow-y: hidden;
   color: #900909;
   padding: calc(var(--card-width) * 0.085);
   display: flex;
