@@ -280,6 +280,7 @@
   background: #fff;
   user-select: text;
   -webkit-user-select: text;
+  text-align: center;
 }
 
 .gameCode:focus {
