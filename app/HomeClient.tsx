@@ -11,6 +11,7 @@ export default function HomeClient() {
   const [gift, setGift] = useState<GiftDetailsType | null>(null);
   const [hasUserData, setHasUserData] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [cardOpen, setCardOpen] = useState(false);
 
   useEffect(() => {
     // Disable jsdos tips UI before it loads
@@ -56,8 +57,21 @@ export default function HomeClient() {
   return (
     <div className="app-root">
       <div className="bg-overlay" />
+      <a
+        className={`cover-attribution${cardOpen ? " cover-attribution--fade" : ""}`}
+        href="https://www.freepik.com/free-vector/floral-christmas-greeting-card_979320.htm#fromView=search&page=2&position=15&uuid=9d13e0ce-4b60-4699-9d5e-2b949aa621d4&query=Happy+holidays+card"
+        target="_blank"
+        rel="noreferrer"
+      >
+        Image by tamaratorres on Freepik
+      </a>
       <main className="main-stage">
-        <GiftCard gift={gift} hasUserData={hasUserData} loading={loading} />
+        <GiftCard
+          gift={gift}
+          hasUserData={hasUserData}
+          loading={loading}
+          onOpenChange={setCardOpen}
+        />
       </main>
     </div>
   );

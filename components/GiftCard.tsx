@@ -8,20 +8,27 @@ interface Props {
   gift: GiftDetailsType | null;
   hasUserData: boolean;
   loading?: boolean;
+  onOpenChange?: (open: boolean) => void;
 }
 
-export default function GiftCard({ gift, hasUserData, loading }: Props) {
+export default function GiftCard({ gift, hasUserData, loading, onOpenChange }: Props) {
   const [open, setOpen] = useState(false);
 
-  const openCard = useCallback(() => setOpen(true), []);
+  const openCard = useCallback(() => {
+    if (open) return;
+    setOpen(true);
+    onOpenChange?.(true);
+  }, [open, onOpenChange]);
   const onKeyDown = useCallback<React.KeyboardEventHandler<HTMLDivElement>>(
     (e) => {
       if (e.key === "Enter" || e.key === " ") {
         e.preventDefault();
+        if (open) return;
         setOpen(true);
+        onOpenChange?.(true);
       }
     },
-    []
+    [open, onOpenChange]
   );
 
   return (
