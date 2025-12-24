@@ -72,6 +72,7 @@
   position: absolute;
   inset: 0;
   backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .coverFront,
@@ -81,6 +82,8 @@
 }
 
 .coverFront {
+  transform: rotateY(0deg);
+  pointer-events: none;
   background-image:
     linear-gradient(135deg, rgba(255, 255, 255, 0.18), rgba(0, 0, 0, 0.12)),
     url('/images/cover.jpg');
@@ -201,7 +204,7 @@
 }
 
 .open .cover {
-  transform: rotateY(-179deg);
+  transform: rotateY(-180deg);
   box-shadow: 0 1em 3em 0 rgba(0, 0, 0, 0.2);
 }
 
