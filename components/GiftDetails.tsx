@@ -27,9 +27,7 @@ export default function GiftDetails({ gift, hasUserData, loading }: Props) {
         <div className={styles.loading}>Loading...</div>
       )}
 
-      {gift?.name && (
-        <h2 className={styles.giftName}>{gift.name},</h2>
-      )}
+      <h2 className={styles.giftName}>{gift?.name || "Hey there"},</h2>
 
       <div
         className={styles.message}
